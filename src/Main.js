@@ -55,7 +55,7 @@ export default function Main() {
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             {/* <Link to="/signIn"> */}
                             <Link to="/signIn">
-                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                            <Button type="submit" fullWidth variant="contained" sx={{ mt: '3px', mb: '2px' }}>
                                 START
                             </Button>
                             </Link>

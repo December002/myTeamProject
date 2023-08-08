@@ -89,7 +89,7 @@ export default function SignIn() {
                             </Grid>
                         </Grid>
                         <Grid container sx={{ mt: 3 }} justifyContent="space-between">
-                            <Button type="submit" variant="contained" f>
+                            <Button type="submit" variant="contained">
                                 구글 로그인
                             </Button>
                             <Button type="submit" variant="contained" style={{ backgroundColor: yellow[500] }}>
