@@ -1,0 +1,42 @@
+.row {
+    max-width: 900px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* 수직 가운데 정렬 추가 */
+    gap: 20px;
+    height: 100vh; /* 원하는 높이값으로 수정 */
+}
+
+.card {
+    width: calc(33.33% - 2rem);
+    margin-bottom: 20px;
+    height: 70%;
+}
+
+.carousel-card-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+.left-button {
+    left: 0;
+}
+
+.right-button {
+    right: 0;
+}
