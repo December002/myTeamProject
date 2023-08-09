@@ -1,10 +1,10 @@
 
-import Carousel from "./Carousel";
-import HowTo from "./HowTo";
-import Main from "./Main"
-import ProductsPage from "./ProductsPage";
-import RecommendList from "./RecommandList";
-import WhereToGo from "./WhereToGo";
+import Carousel from "./main/Carousel";
+import HowTo from "./main/HowTo";
+import Main from "./main/Main"
+import ProductsPage from "./main/ProductsPage";
+import RecommendList from "./main/RecommandList";
+import WhereToGo from "./main/WhereToGo";
 function App() {
     return(
         <>

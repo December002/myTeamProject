@@ -92,7 +92,10 @@ export default function SignUp({ children }) {
                                     variant="contained"
                                     size="small"
                                     id="checkBtn"
-                                    preventDefault
+                                    onClick={(event) => {
+                                        event.preventDefault(); // 이벤트의 기본 동작 막기
+                                        // 추가적인 로직 수행
+                                    }}
                                     sx={{ height: '100%' }}
                                 >
                                     중복 확인

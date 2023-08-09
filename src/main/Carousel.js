@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import IconButton from "@mui/material/IconButton";
-import Card from "./Card";
+import Card from "../Card";
 import "./carousel.css";
 
 function Carousel() {

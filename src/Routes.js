@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import SignIn from './login/SignIn';
+import SignUp from './login/SignUp';
 import App from './App';
 
 export default function RouteApp() {
