@@ -13,7 +13,7 @@ function Card() {
                     </div>
                     <ul className="menu-content">
                         <li>
-                            <span> </span>
+                            <span></span>
                         </li>
                         <li>
                             <span>18</span>

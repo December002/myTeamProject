@@ -8,6 +8,22 @@ import IconButton from "@mui/material/IconButton";
 import Card from "../Card";
 import "./carousel.css";
 
+function SlideWithButton({ onClickPrev, onClickNext }) {
+  return (
+    <div className="carousel-card-container">
+      <IconButton onClick={onClickPrev} className="carousel-button left-button">
+        <ArrowBackIosIcon />
+      </IconButton>
+      <Card />
+      <Card />
+      <Card />
+      <IconButton onClick={onClickNext} className="carousel-button right-button">
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </div>
+  );
+}
+
 function Carousel() {
   const sliderRef = React.useRef(null);
 
@@ -31,33 +47,13 @@ function Carousel() {
     <div style={{ position: "relative" }}>
       <Slider ref={sliderRef} {...settings}>
         <div>
-          <div className="carousel-card-container">
-            <IconButton
-              onClick={goToPrevSlide}
-              className="carousel-button left-button"
-            >
-              <ArrowBackIosIcon />
-            </IconButton>
-            <Card />
-            <Card />
-            <Card />
-            <IconButton
-              onClick={goToNextSlide}
-              className="carousel-button right-button"
-            >
-              <ArrowForwardIosIcon />
-            </IconButton>
-          </div>
+          <SlideWithButton onClickPrev={goToPrevSlide} onClickNext={goToNextSlide} />
         </div>
         <div>
-          <Card />
-          <Card />
-          <Card />
+          <SlideWithButton onClickPrev={goToPrevSlide} onClickNext={goToNextSlide} />
         </div>
         <div>
-          <Card />
-          <Card />
-          <Card />
+          <SlideWithButton onClickPrev={goToPrevSlide} onClickNext={goToNextSlide} />
         </div>
       </Slider>
     </div>
