@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -15,8 +15,10 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-// const defaultTheme = createTheme();
+import FormLabel from '@mui/material/FormLabel';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
 
 const theme = createTheme({
     overrides: {
@@ -28,7 +30,10 @@ const theme = createTheme({
     },
 });
 
-export default function SignUp({ children }) {
+export default function SignUp() {
+    const iconBtn = (e) =>{
+        e.preventDefault()
+    }
     const [showPassword, setShowPassword] = React.useState(false);
     const [showPassword2, setShowPassword2] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -38,10 +43,16 @@ export default function SignUp({ children }) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            email: data.get('email'),
+            name: data.get('name'),
+            id: data.get('id'),
             password: data.get('password'),
+            email: data.get('email'),
+            phone: data.get('phone'),
+            birth: data.get('birth'),
+            gender: data.get('gender'),
         });
     };
+
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -54,6 +65,11 @@ export default function SignUp({ children }) {
                         alignItems: 'center',
                     }}
                 >
+                    <Link to="/">
+                        <Button>
+                            메인버튼
+                        </Button>
+                    </Link>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>
@@ -67,7 +83,7 @@ export default function SignUp({ children }) {
                                     required
                                     fullWidth
                                     id="name"
-                                    label="Name"
+                                    label="이름"
                                     name="name"
                                     autoComplete="Name"
                                     size="small"
@@ -76,7 +92,7 @@ export default function SignUp({ children }) {
                             </Grid>
                             <Grid item xs={12} sm={8}>
                                 <TextField
-                                    autoComplete="given-name"
+                                    autoComplete="id"
                                     name="id"
                                     required
                                     fullWidth
@@ -92,10 +108,7 @@ export default function SignUp({ children }) {
                                     variant="contained"
                                     size="small"
                                     id="checkBtn"
-                                    onClick={(event) => {
-                                        event.preventDefault(); // 이벤트의 기본 동작 막기
-                                        // 추가적인 로직 수행
-                                    }}
+                                    preventDefault
                                     sx={{ height: '100%' }}
                                 >
                                     중복 확인
@@ -167,19 +180,31 @@ export default function SignUp({ children }) {
                             </Grid>
                             <Grid item xs={12}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DatePicker format="YYYY-MM-DD" mask={'____-__-__'} sx={{ width: '100%' }} />
+                                    <DatePicker
+                                        format="YYYY-MM-DD"
+                                        mask={'____-__-__'}
+                                        sx={{ width: '100%' }}
+                                        id="birth"
+                                    />
                                 </LocalizationProvider>
                             </Grid>
+                            <Grid item xs={12}>
+                                <FormControl>
+                                    <FormLabel id="gender">성별</FormLabel>
+                                    <RadioGroup row name="row-radio-buttons-group" >
+                                        <FormControlLabel value="male" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="남자" />
+                                        <FormControlLabel value="female" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="여자" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </Grid>
                         </Grid>
-                        <Link to="/">
-                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                                Sign Up
-                            </Button>
-                        </Link>
+                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                            Sign Up
+                        </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="/signIn" variant="body2">
-                                    누르시오
+                                <Link href="#" variant="body2">
+                                    Already have an account? Sign in
                                 </Link>
                             </Grid>
                         </Grid>

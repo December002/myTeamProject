@@ -3,7 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -13,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { yellow, green } from '@mui/material/colors';
 import { Divider, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-
+import {Link} from "react-router-dom"
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
@@ -43,6 +42,11 @@ export default function SignIn() {
                         alignItems: 'center',
                     }}
                 >
+                     <Link to="/">
+                        <Button>
+                            메인버튼
+                        </Button>
+                    </Link>
                     <Avatar sx={{ m: 1, bgcolor: '' }}>
                         <LockOutlinedIcon />
                     </Avatar>
