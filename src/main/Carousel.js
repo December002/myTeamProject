@@ -5,21 +5,19 @@ import "slick-carousel/slick/slick-theme.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import IconButton from "@mui/material/IconButton";
-import Card from "../Card";
+import Card from "../Card"
 import "./carousel.css";
 
 function SlideWithButton({ onClickPrev, onClickNext }) {
   return (
     <div className="carousel-card-container">
-      <IconButton onClick={onClickPrev} className="carousel-button left-button">
-        <ArrowBackIosIcon />
-      </IconButton>
-      <Card />
-      <Card />
-      <Card />
-      <IconButton onClick={onClickNext} className="carousel-button right-button">
-        <ArrowForwardIosIcon />
-      </IconButton>
+        <IconButton onClick={onClickPrev} className="carousel-button left-button">
+          <ArrowBackIosIcon />
+        </IconButton>
+        <Card/>
+        <IconButton onClick={onClickNext} className="carousel-button right-button">
+          <ArrowForwardIosIcon />
+        </IconButton>
     </div>
   );
 }

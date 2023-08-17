@@ -31,9 +31,6 @@ const theme = createTheme({
 });
 
 export default function SignUp() {
-    const iconBtn = (e) =>{
-        e.preventDefault()
-    }
     const [showPassword, setShowPassword] = React.useState(false);
     const [showPassword2, setShowPassword2] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
