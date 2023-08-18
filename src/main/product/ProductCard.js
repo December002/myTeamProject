@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 import { Box, Card, Link, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Rating from '@mui/material/Rating';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
-import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 // utils
 
@@ -47,7 +43,7 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, cover,} = product;
+  const { name, cover, eName} = product;
 
   return (
     <Card>
@@ -60,24 +56,8 @@ export default function ShopProductCard({ product }) {
         <Link color="inherit" underline="hover">
           <Typography variant="subtitle2" noWrap>
             {name}
-            <StyledRating
-                name="customized-color"
-                defaultValue={0}
-                precision={1}
-                max={1}
-                icon={<FavoriteIcon fontSize="inherit" />}
-                emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
-            />
-            <StyledSave
-                name="customized-color"
-                defaultValue={0}
-                precision={1}
-                max={1}
-                icon={<TurnedInIcon fontSize="inherit" />}
-                emptyIcon={<TurnedInNotIcon fontSize="inherit" />}
-            />
-            <VisibilityRoundedIcon color="action"/>
           </Typography>
+          {eName}
         </Link>
         <Stack
           direction="row"

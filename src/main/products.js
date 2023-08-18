@@ -1,3 +1,23 @@
+const images_eName=[
+  "GANGNEUNG",
+  "GYEONGJU",
+  "DAEGU",
+  "BUSAN",
+  "SEOUL",
+  "SOKCHO",
+  "YEOSU",
+  "YEONGWOL",
+  "INCHEON",
+  "JUNJU",
+  "JEJU"
+
+]
+
+
+
+//-----------------------------------------------------------------------
+
+
 
 const images = [
   "http://localhost:3000/locimages/gangneung.jpg",
@@ -37,7 +57,8 @@ const images_name = [
 const products = [...Array(11)].map((_, index) => {
   return {
     name: images_name[index],
-    cover : images[index]
+    cover : images[index],
+    eName : images_eName[index]
   };
 });
 

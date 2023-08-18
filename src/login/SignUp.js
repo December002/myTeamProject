@@ -182,12 +182,13 @@ export default function SignUp() {
                                         mask={'____-__-__'}
                                         sx={{ width: '100%' }}
                                         id="birth"
+                                        
                                     />
                                 </LocalizationProvider>
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl>
-                                    <FormLabel id="gender">성별</FormLabel>
+                                    <FormLabel id="gender" >성별</FormLabel>
                                     <RadioGroup row name="row-radio-buttons-group" >
                                         <FormControlLabel value="male" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="남자" />
                                         <FormControlLabel value="female" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="여자" />
