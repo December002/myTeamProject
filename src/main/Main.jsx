@@ -1,46 +1,45 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
 import * as React from 'react';
-import './Main.css';
 import { Link } from 'react-router-dom';
+import './Main.css';
 
 export default function Main() {
     const handleSubmit = (event) => {
         event.preventDefault();
     };
+
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const firstBoxWidth = isSmallScreen ? '100%' : '83.3333%';
+    const secondBoxWidth = isSmallScreen ? '100%' : '16.6666%';
+
     return (
         <div className="box-container">
             <Box
+                className="first-box"
                 sx={{
-                    width: 1500,
-                    height: 700,
-                    border: '1px solid black',
-                    padding: '2',
-                    '&:hover': {
-                        backgroundColor: 'primary.main',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
-                }}
-            />
-            <Box
-                sx={{
-                    width: 380,
-                    height: 700,
-                    border: '1px solid black',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    '&:hover': {
-                        backgroundColor: 'primary.main',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
+                    width: firstBoxWidth,
                 }}
             >
-                <h3 style={{ marginTop: '-80px', marginBottom: '15px' }}>여행을 위한 계획</h3>
-                <h2 style={{ marginTop: '10px', marginBottom: '80px' }}>Travel Again</h2>
-                <Box onSubmit={handleSubmit}>
+                <img
+                    src="https://source.unsplash.com/random/1500x700"
+                    alt="a"
+                    style={{ width: '100%', height: '100%' }}
+                />
+            </Box>
+            <Box
+                className="second-box"
+                sx={{
+                    width: secondBoxWidth,
+                }}
+            >
+                <h3 className="heading1">여행을 위한 계획</h3>
+                <h2 className="heading2">TRAVEL AGAIN</h2>
+                <Box component="form" onSubmit={handleSubmit}>
                     <Link to="/signIn">
                         <Button
+                        className='startBtn'
                             type="submit"
                             size="large"
                             variant="contained"

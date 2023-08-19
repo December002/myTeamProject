@@ -10,7 +10,7 @@ import NativeSelect from '@mui/material/NativeSelect';
 function WhereToGo() {
     return (
         <div className="container">
-            <h2>어디루 여행 갈고니??</h2>
+            <h2>어디로 여행을 떠나시나요?</h2>
             <div style={{ margin: 20, padding: 20 }}>
                 <Box
                     component="form"

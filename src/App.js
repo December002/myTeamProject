@@ -3,7 +3,8 @@
 // import Carousel from "./main/Carousel";
 // import WhereToGo from "./main/WhereToGo";
 // import ProductsPage from "./main/ProductsPage";
-import TourCard from "./plan/TourCard";
+import ModalItem from "./main/modal/ModalItem";
+// import TourCard from "./plan/TourCard";
 function App() {
     return(
         <>
@@ -12,7 +13,8 @@ function App() {
             <Carousel/>
             <WhereToGo/>
             <ProductsPage/> */}
-            <TourCard/>
+            {/* <TourCard/> */}
+            '<ModalItem/>'
         </>
     )
 }
