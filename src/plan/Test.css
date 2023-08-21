@@ -1,0 +1,39 @@
+.gridContainer {
+    margin-top: 30px;
+    height: 900px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.leftbar,
+.rightbar,
+.maparea {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.leftbar {
+    width: 100%;
+}
+
+.maparea {
+    width: 100%;
+}
+
+.rightbar {
+    width: 100%;
+}
+
+/* 미디어 쿼리를 사용하여 화면 크기에 따라 스타일 조정 */
+@media (min-width: 600px) {
+    .leftbar {
+        width: 16.666%; /* 2/12 */
+    }
+    .maparea {
+        width: 66.666%; /* 8/12 */
+    }
+    .rightbar {
+        width: 16.666%; /* 2/12 */
+    }
+}

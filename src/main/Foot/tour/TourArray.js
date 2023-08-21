@@ -20,17 +20,17 @@ const images_eName=[
 
 
 const images = [
-  "http://localhost:3000/locimages/gangneung.jpg",
-  "http://localhost:3000/locimages/gyeongju.jpg",
-  "http://localhost:3000/locimages/daegu.jpg",
-  "http://localhost:3000/locimages//busan.jpg",
-  "http://localhost:3000/locimages//seoul.jpg",
-  "http://localhost:3000/locimages//sokcho.jpg",
-  "http://localhost:3000/locimages//yeosu.jpg",
-  "http://localhost:3000/locimages//Yeongwol.jpg",
-  "http://localhost:3000/locimages//incheon.jpg",
-  "http://localhost:3000/locimages//junju.jpg",
-  "http://localhost:3000/locimages//jeju.jpg",
+  "locimages/gangneung.jpg",
+  "locimages/gyeongju.jpg",
+  "locimages/daegu.jpg",
+  "locimages//busan.jpg",
+  "locimages//seoul.jpg",
+  "locimages//sokcho.jpg",
+  "locimages//yeosu.jpg",
+  "locimages//Yeongwol.jpg",
+  "locimages//incheon.jpg",
+  "locimages//junju.jpg",
+  "locimages//jeju.jpg",
  
 ]
 
@@ -54,7 +54,7 @@ const images_name = [
 
 // ----------------------------------------------------------------------
 
-const products = [...Array(11)].map((_, index) => {
+const TourArray = [...Array(11)].map((_, index) => {
   return {
     name: images_name[index],
     cover : images[index],
@@ -62,4 +62,4 @@ const products = [...Array(11)].map((_, index) => {
   };
 });
 
-export default products;
+export default TourArray;

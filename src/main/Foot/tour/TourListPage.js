@@ -2,15 +2,15 @@ import { useState } from "react";
 // @mui
 import { Container, Stack } from "@mui/material";
 // components
-import ProductSort from "./product/ProductSort";
-import ProductList from "./product/ProductList";
-import ProductFilterSidebar from "./product/ProductFilterSidebar";
+import TourSort from "./TourSort";
+import TourList from "./TourList";
+import TourFilterSidebar from "./TourFilterSidebar";
 // mock
-import PRODUCTS from "./products.js";
+import TourArray from "./TourArray.js";
 
 // ----------------------------------------------------------------------
 
-export default function ProductsPage() {
+export default function TourListPage() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleOpenFilter = () => {
@@ -32,15 +32,15 @@ export default function ProductsPage() {
           sx={{ mb: 5 }}
         >
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-            <ProductFilterSidebar
+            <TourFilterSidebar
               openFilter={openFilter}
               onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
+              onCloseFilter={handleCloseFilter} 
             />
-            <ProductSort />
+            <TourSort />
           </Stack>
         </Stack>
-        <ProductList products={PRODUCTS} />
+        <TourList tourArray={TourArray} />
       </Container>
     </>
   );

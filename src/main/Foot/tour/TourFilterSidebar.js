@@ -215,4 +215,4 @@ export default function ShopFilterSidebar({
     </>
   );
 }
-export { default as ProductFilterSidebar } from "./ProductFilterSidebar";
+export { default as ProductFilterSidebar } from "./TourFilterSidebar";

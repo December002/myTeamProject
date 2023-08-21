@@ -2,32 +2,14 @@ import PropTypes from "prop-types";
 // @mui
 import { Box, Card, Link, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Rating from '@mui/material/Rating';
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
-// utils
+
 
 // components
 
 
 // ----------------------------------------------------------------------
 
-const StyledRating = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#ff3d47',
-  },
-  '& .MuiRating-iconHover': {
-    color: '#ff6d75',
-  },
-});
 
-const StyledSave = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#454c53',
-  },
-  '& .MuiRating-iconHover': {
-    color: '#72787f',
-  },
-});
 
 const StyledProductImg = styled("img")({
   top: 0,
@@ -38,12 +20,12 @@ const StyledProductImg = styled("img")({
 });
 // ----------------------------------------------------------------------
 
-ShopProductCard.propTypes = {
-  product: PropTypes.object,
+TourCard.propTypes = {
+  tourArray: PropTypes.object,
 };
 
-export default function ShopProductCard({ product }) {
-  const { name, cover, eName} = product;
+export default function TourCard({ tourArray }) {
+  const { name, cover, eName} = tourArray;
 
   return (
     <Card>
@@ -71,4 +53,3 @@ export default function ShopProductCard({ product }) {
     </Card>
   );
 }
-export { default as ProductCard } from "./ProductCard";
