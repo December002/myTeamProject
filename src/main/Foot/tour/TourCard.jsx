@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 // @mui
 import { Box, Card, Link, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Modal from "../../../modal/Modal";
+import ModalItem from "../../../modal/ModalItem";
 
 
 // components
@@ -20,26 +22,31 @@ const StyledProductImg = styled("img")({
 });
 // ----------------------------------------------------------------------
 
-TourCard.propTypes = {
+TourCard.propTypes = {  
   tourArray: PropTypes.object,
 };
 
-export default function TourCard({ tourArray }) {
-  const { name, cover, eName} = tourArray;
-
+export default function TourCard({ tourArray ,}) {
+  const { korTitle, locimages, engTitle, areacode} = tourArray;
+  const linkClick = () => {
+    return(0)
+    
+  }
   return (
+    
     <Card>
       <Box sx={{ pt: "100%", position: "relative" }}>
         
-        <StyledProductImg alt={name} src={cover} />
+        <StyledProductImg alt={korTitle} src={locimages} />
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
+
         <Link color="inherit" underline="hover">
-          <Typography variant="subtitle2" noWrap>
-            {name}
+          <Typography variant="subtitle2" noWrap >
+            {korTitle}
           </Typography>
-          {eName}
+          {engTitle}
         </Link>
         <Stack
           direction="row"

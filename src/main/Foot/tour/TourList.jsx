@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import { Grid } from '@mui/material';
-import TourCard from './TourCard';
+import { Grid } from "@mui/material";
+import TourCard from "./TourCard";
+import ModalItem from "../../../modal/ModalItem";
+
 
 // ----------------------------------------------------------------------
 
@@ -11,6 +13,7 @@ ProductList.propTypes = {
 
 export default function ProductList({ tourArray, ...other }) {
   return (
+    <>
     <Grid container spacing={6} {...other}>
       {tourArray.map((product) => (
         <Grid key={product.id} item xs={12} sm={6} md={3}>
@@ -18,6 +21,8 @@ export default function ProductList({ tourArray, ...other }) {
         </Grid>
       ))}
     </Grid>
+    <ModalItem/>  
+    </>
   );
 }
-export { default as TourList } from './TourList';
+export { default as TourList } from "./TourList.jsx";

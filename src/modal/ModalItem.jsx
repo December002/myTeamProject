@@ -6,7 +6,6 @@
 
     function ModalItem() {
         const [modalOpen, setModalOpen] = useState(false);
-
         const openModal = () => {
             setModalOpen(true);
         };
@@ -17,8 +16,7 @@
 
         return (
             <>
-                <h1>Modal</h1>
-                <button onClick={openModal}>Open Modal</button>
+                <button onClick={openModal}>456</button>
                 <Modal isOpen={modalOpen} onClose={closeModal}>
                     <div className="modal-grid">
                         <div className="modal-text">

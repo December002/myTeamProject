@@ -6,7 +6,8 @@ import TourSort from "./TourSort";
 import TourList from "./TourList";
 import TourFilterSidebar from "./TourFilterSidebar";
 // mock
-import TourArray from "./TourArray.js";
+import Modal from "../../../modal/Modal";
+import tourjson from "../../../trip.json"
 
 // ----------------------------------------------------------------------
 
@@ -35,12 +36,12 @@ export default function TourListPage() {
             <TourFilterSidebar
               openFilter={openFilter}
               onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter} 
+              onCloseFilter={handleCloseFilter}
             />
             <TourSort />
           </Stack>
         </Stack>
-        <TourList tourArray={TourArray} />
+        <TourList tourArray={tourjson} />
       </Container>
     </>
   );
