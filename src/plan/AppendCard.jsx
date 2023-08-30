@@ -4,30 +4,16 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, Card } from '@mui/material';
-import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import StarIcon from '@mui/icons-material/Star';
-
-
-function textOverCut(txt, len, lastTxt) {
-    if (len === '' || len == null) {
-        // 기본값
-        len = 12;
-    }
-    if (lastTxt === '' || lastTxt == null) {
-        // 기본값
-        lastTxt = '...';
-    }
-    if (txt.length > len) {
-        txt = txt.substr(0, len) + lastTxt;
-    }
-    return txt;
-}
+import {textOverCut}  from './textOverCut.js';
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 
 export default function AppendCard({ selectedItems, setSelectedItems }) {
     const removeBtnClick = (item) => {
-    const updatedItems = selectedItems.filter((i) => i.contentid !== item.contentid);
-    setSelectedItems(updatedItems);
-    }
+        const updatedItems = selectedItems.filter((i) => i.contentid !== item.contentid);
+        setSelectedItems(updatedItems);
+    };
+
     return (
         <>
             {selectedItems.map((item, index) => (
@@ -70,7 +56,7 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
                                 도로명
                             </span>
                             <Typography variant="h6" sx={{ fontSize: 8.3 }}>
-                                {textOverCut(item.addr1, 15, '...')}
+                                {textOverCut(item.addr1, 14.8, '...')}
                             </Typography>
                         </Typography>
                         <div>
@@ -87,7 +73,7 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
                         }}
                     >
                         <Button
-                            onClick={()=>removeBtnClick(item)}
+                            onClick={() => removeBtnClick(item)}
                             sx={{
                                 height: '30px',
                                 width: '30px',
@@ -96,7 +82,7 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
                                 marginRight: '9px',
                             }}
                         >
-                            <IndeterminateCheckBoxIcon color='error' />
+                            <IndeterminateCheckBoxIcon color="error" />
                         </Button>
                     </div>
                 </Card>
