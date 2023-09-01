@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 // @mui
 import { Grid } from "@mui/material";
 import TourCard from "./TourCard";
-import ModalItem from "../../../modal/ModalItem";
 
 
 // ----------------------------------------------------------------------
@@ -21,7 +20,6 @@ export default function ProductList({ tourArray, ...other }) {
         </Grid>
       ))}
     </Grid>
-    <ModalItem/>  
     </>
   );
 }

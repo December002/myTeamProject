@@ -45,7 +45,7 @@ function DatePicker({ selectedItems, setSelectedItems }) {
             const dateRangeInDays = (endDate - startDate) / dayInMillis + 1;
 
             if (dateRangeInDays > MAX_DATE) {
-                handleSnackbarOpen();
+                <DateAlert/>
             } else {
                 for (let i = 0; i < dateRangeInDays; i++) {
                     accordions.push(
@@ -108,7 +108,7 @@ function DatePicker({ selectedItems, setSelectedItems }) {
             <DateAlert
                 open={snackbarOpen}
                 onClose={() => setSnackbarOpen(false)}
-                message={`선택한 날짜 범위는 ${MAX_DATE}일을 초과할 수 없습니다.`}
+               message={`선택한 날짜 범위는 ${MAX_DATE}일을 초과할 수 없습니다.`}
             />
         </div>
     );

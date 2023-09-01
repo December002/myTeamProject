@@ -50,7 +50,7 @@ export default function TourCard({ tourArray ,}) {
 
         <Stack spacing={2} sx={{ p: 3 }}>
 
-          <Link color="inherit" underline="hover" onClick={openModal}>
+          <Link style={{cursor:"pointer"}} color="inherit" underline="hover" onClick={openModal}>
             <Typography variant="subtitle2" noWrap >
               {korTitle}
             </Typography>

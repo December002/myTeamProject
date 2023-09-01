@@ -1,26 +1,37 @@
-import React from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
-function DateAlert({ open, handleClose }) {
+export default function DateAlert() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false)
+  };
+
   return (
-    <Snackbar
-      open={open}
-      autoHideDuration={4000}
-      onClose={handleClose}
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-    >
-      <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
-        <AlertTitle>Warning</AlertTitle>
-        선택한 날짜 범위는 5일을 초과할 수 없습니다.
-      </Alert>
-    </Snackbar>
+    <>
+      <Button variant="outlined" onClick={handleClick}>
+        스낵바 열기
+      </Button>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          삐빅
+        </Alert>
+      </Snackbar>
+    </>
   );
 }
-
-export default DateAlert;

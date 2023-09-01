@@ -6,9 +6,7 @@ import TourSort from "./TourSort";
 import TourList from "./TourList";
 import TourFilterSidebar from "./TourFilterSidebar";
 // mock
-import Modal from "../../../modal/Modal";
 import tourjson from "../../../trip.json"
-import ModalItem from "../../../modal/ModalItem";
 
 // ----------------------------------------------------------------------
 

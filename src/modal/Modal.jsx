@@ -3,40 +3,42 @@ import "./Modal.css"
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import CloseIcon from '@mui/icons-material/Close';
+import tourjson from "../trip.json"
+import { Link } from 'react-router-dom';
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, areacode }) => {
     if (!isOpen) return null;
+    const areaData = tourjson.find(item => item.areacode === areacode);
 
     return (
         <div className="modal-overlay">
             <div className="modal">
                 <div className="modal-header">
                     <button className="modal-close" onClick={onClose}>
-                        X
+                        <CloseIcon/>
                     </button>
                 </div>
                 <div className="modal-grid">
                         <div className="modal-text">
-                            <h1>대한민국 서울</h1>
-                            <h3>SEOUL</h3>
+                            <h1>{areaData.korTitle}</h1>
+                            <h3>{areaData.engTitle}</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                {areaData.description}
                             </p>
                             <PersonIcon sx={{ fontSize: 45, mt: 3, ml: 10, mr: 8 }} />
                             <FavoriteIcon sx={{ fontSize: 45, mr: 8 }} />
                             <BookmarkIcon sx={{ fontSize: 45 }} />
                         </div>
                         <div className="modal-image">
-                            <img src="https://picsum.photos/350/350" alt="aaa" />
+                            <img src={areaData.locimages} alt={areaData.korTitle} />
                         </div>
                     </div>
-                <div className="modal-content">{children}</div>
-                <button className="modal-button" onClick={onClose}>
-                    Close
-                </button>
+                <Link to="/plan">
+                    <button className="modal-button" >
+                        일정 생성하기
+                    </button>
+                </Link>
             </div>
             
         </div>
