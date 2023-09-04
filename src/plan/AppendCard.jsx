@@ -8,21 +8,16 @@ import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox
 import StarIcon from "@mui/icons-material/Star";
 import { textOverCut } from "./textOverCut.js";
 
-export default function AppendCard({ selectedItems, setSelectedItems }) {
-  const removeBtnClick = (itemToRemove) => {
-    const updatedItems = selectedItems.filter(
-      (item) => item.contentid !== itemToRemove.contentid
-    );
-    setSelectedItems(updatedItems);
-  };
-
-  const choiceItems = selectedItems ? [...selectedItems] : [];
-
+export default function AppendCard({  selectedItems, setSelectedItems }) {
+   
+  const removeBtnClick = (item) => {
+    console.log(item)
+};
  
 
   return (
     <>
-      {choiceItems.map((item, index) => (
+      {selectedItems.map((item, index) => (
         <Card
           key={item.contentid}
           sx={{
@@ -68,7 +63,7 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
                 도로명
               </span>
               <Typography variant="h6" sx={{ fontSize: 8.3 }}>
-                {textOverCut(item.addr1, 14.8, "...")}
+                {/* {textOverCut(item.addr1, 14.8, "...")} */}
               </Typography>
             </Typography>
             <div>
@@ -85,7 +80,7 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
             }}
           >
             <Button
-              onClick={() => removeBtnClick(item)}
+              onClick={removeBtnClick}
               sx={{
                 height: "30px",
                 width: "30px",

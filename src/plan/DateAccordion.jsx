@@ -14,7 +14,7 @@ export default function DateAccordion({ dateLength, selectedItems, setSelectedIt
     const index = panel.slice(-1);
     setSelectedIndex(index);
   };
-
+  
   // 생성할 Accordion의 개수
   const numberOfAccordions = dateLength;
   const dateCards = [];
