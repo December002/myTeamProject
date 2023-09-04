@@ -1,117 +1,54 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { DateRange } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import './css/DatePicker.css';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AppendCard from './AppendCard';
-import ko from 'date-fns/locale/ko';
-import DateAlert from './DateAlert';
+import React, { useState } from "react";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import "./css/DatePicker.css";
+import { eachDayOfInterval } from "date-fns";
+import ko from "date-fns/locale/ko";
 
+function DatePicker({ onDateChange }) {
+  const [state, setState] = useState([
+    {
+      startDate: null,
+      endDate: null,
+      key: "selection",
+    },
+  ]);
+  
 
-function DatePicker({ selectedItems, setSelectedItems }) {
-    const MAX_DATE = 5;
-    //플래너 -> 데이트피커 -> 아코디언 -> 얼러트
+  // startDate와 endDate를 설정하고 각 날짜를 배열로 얻기 위한 함수
+  function handleDateChange(item) {
+    setState([item.selection]);
+    const startDate = new Date(item.selection.startDate);
+    const endDate = new Date(item.selection.endDate);
+    const datesArray = eachDayOfInterval({
+      start: startDate,
+      end: endDate,
+    });
 
-    const [state, setState] = useState([
-        {
-            startDate: null,
-            endDate: null,
-            key: 'selection',
-        },
-    ]);
+    onDateChange(datesArray);
+  }
 
-    const [expanded, setExpanded] = useState('panel0');
-    const [snackbarOpen, setSnackbarOpen] = useState(false);
-    const [accordions, setAccordions] = useState([]);
-
-    const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
-    };
-
-    const handleSnackbarOpen = () => setSnackbarOpen(true);
-    const handleSnackbarClose = (event, reason) => {
-        if (reason !== 'clickaway') setSnackbarOpen(false);
-    };
-
-    const createAccordions = useCallback(
-        (startDate, endDate) => {
-            const accordions = [];
-            const dayInMillis = 24 * 60 * 60 * 1000;
-            const dateRangeInDays = (endDate - startDate) / dayInMillis + 1;
-
-            if (dateRangeInDays > MAX_DATE) {
-                <DateAlert/>
-            } else {
-                for (let i = 0; i < dateRangeInDays; i++) {
-                    accordions.push(
-                        <Accordion key={i} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
-                            <AccordionSummary
-                                aria-controls={`panel${i}d-content`}
-                                id={`panel${i}d-header`}
-                                expandIcon={<ExpandMoreIcon />}
-                            >
-                                <Typography>DAY {i + 1}</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails style={{ padding: 0 }}>
-                                <AppendCard
-                                    selectedItems={selectedItems}
-                                    setSelectedItems={setSelectedItems}
-                                    day={i + 1}
-                                />
-                            </AccordionDetails>
-                        </Accordion>
-                    );
-                }
-            }
-            return accordions;
-        },
-        [expanded, selectedItems, setSelectedItems]
-    );
-
-    useEffect(() => {
-        if (state[0].startDate && state[0].endDate) {
-            const startDate = new Date(state[0].startDate);
-            const endDate = new Date(state[0].endDate);
-
-            const newAccordions = createAccordions(startDate, endDate);
-            setAccordions(newAccordions);
-        }
-    }, [state, expanded, selectedItems, createAccordions, setSelectedItems]);
-
-    return (
-        <div>
-            <DateRange
-                locale={ko}
-                editableDateInputs={true}
-                onChange={(item) => setState([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={state}
-                showDateDisplay={true}
-                showSelectionPreview={true}
-                months={1}
-                direction="horizontal"
-                rangeColors={['#3d91ff']}
-                showMonthAndYearPickers={false}
-                format="yyyy-MM-dd"
-                dateDisplayFormat={'yyyy.MM.dd'}
-            />
-            <hr />
-            <h3>선택한 여행지</h3>
-            <hr />
-            {accordions}
-            {/* 일정이 5일을 초과하면 경고창 띄우기 */}
-            <DateAlert
-                open={snackbarOpen}
-                onClose={() => setSnackbarOpen(false)}
-               message={`선택한 날짜 범위는 ${MAX_DATE}일을 초과할 수 없습니다.`}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <DateRange
+        className="calendar"
+        locale={ko}
+        editableDateInputs={true}
+        onChange={handleDateChange}
+        moveRangeOnFirstSelection={false}
+        ranges={state}
+        showDateDisplay={true}
+        showSelectionPreview={true}
+        months={1}
+        direction="horizontal"
+        rangeColors={["#3d91ff"]}
+        showMonthAndYearPickers={false}
+        format="yyyy-MM-dd"
+        dateDisplayFormat={"yyyy.MM.dd"}
+      />
+    </div>
+  );
 }
 
 export default DatePicker;

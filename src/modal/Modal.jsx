@@ -21,14 +21,16 @@ const Modal = ({ isOpen, onClose, areacode }) => {
                 </div>
                 <div className="modal-grid">
                         <div className="modal-text">
-                            <h1>{areaData.korTitle}</h1>
+                            <h1 style={{marginTop:"0px"}}>{areaData.korTitle}</h1>
                             <h3>{areaData.engTitle}</h3>
                             <p>
                                 {areaData.description}
                             </p>
-                            <PersonIcon sx={{ fontSize: 45, mt: 3, ml: 10, mr: 8 }} />
-                            <FavoriteIcon sx={{ fontSize: 45, mr: 8 }} />
-                            <BookmarkIcon sx={{ fontSize: 45 }} />
+                            <div className='modal-icon'> 
+                                <PersonIcon sx={{ fontSize: 45}} />
+                                <FavoriteIcon sx={{ fontSize: 45}} />
+                                <BookmarkIcon sx={{ fontSize: 45 }} />
+                            </div>
                         </div>
                         <div className="modal-image">
                             <img src={areaData.locimages} alt={areaData.korTitle} />

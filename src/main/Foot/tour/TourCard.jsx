@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Box, Card, Link, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import "./TourCard.css"
 import Modal from "../../../modal/Modal";
 
 
@@ -42,20 +43,20 @@ export default function TourCard({ tourArray ,}) {
   
   return (
     <>
-    <Card>
+    <Card className="tourCard-container" style={{boxShadow:"none", transition:"0.3s"}} onClick={openModal}>
         <Box sx={{ pt: "100%", position: "relative" }}>
           
-          <StyledProductImg alt={korTitle} src={locimages} />
+          <StyledProductImg className="modal-img" style={{borderRadius:"15px", height:"110%"}} alt={korTitle} src={locimages} />
         </Box>
 
-        <Stack spacing={2} sx={{ p: 3 }}>
+        <Stack>
 
-          <Link style={{cursor:"pointer"}} color="inherit" underline="hover" onClick={openModal}>
-            <Typography variant="subtitle2" noWrap >
-              {korTitle}
-            </Typography>
+          <Box style={{padding:"2%", paddingTop:"14%", fontSize:"13.5px", color:"#9E9E9E"}} >
+            <Typography variant="subtitle2" noWrap style={{fontSize:"25px", color:"black"}} >
             {engTitle}
-          </Link>
+            </Typography>
+            {korTitle}
+          </Box>
           <Stack
             direction="row"
             alignItems="center"

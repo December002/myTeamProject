@@ -13,9 +13,9 @@ ProductList.propTypes = {
 export default function ProductList({ tourArray, ...other }) {
   return (
     <>
-    <Grid container spacing={6} {...other}>
+    <Grid container  {...other}>
       {tourArray.map((product) => (
-        <Grid key={product.id} item xs={12} sm={6} md={3}>
+        <Grid key={product.id} item xs={12} sm={6} md={3} >
           <TourCard tourArray={product} />
         </Grid>
       ))}

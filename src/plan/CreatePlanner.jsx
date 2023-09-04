@@ -5,15 +5,21 @@ import Map from './Map';
 import PlanCard from './PlanCard';
 import { Button, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import DateAccordion from './DateAccordion';
+import DateAlert from './DateAlert';
+
 
 function Test() {
+    const [dateLength, setDateLength] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedItems, setSelectedItems] = useState([]);
-    const [expanded, setExpanded] = useState('panel0');
 
-    const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
-    };
+    const handleDateChange = (dateArray) => {
+        setDateLength(dateArray.length);
+      };
 
+    
+      console.log(selectedItems)
     return (
         <>
             <div className="plan-header">
@@ -23,18 +29,15 @@ function Test() {
             <div className="TestContainer">
                 <Grid container className="gridContainer">
                     <Grid item className="leftbar" xs={12} sm={2}>
-                        <DatePicker
-                            expanded={expanded}
-                            handleChange={handleChange}
-                            selectedItems={selectedItems}
-                            setSelectedItems={setSelectedItems}
-                        />
+                        <DatePicker onDateChange={handleDateChange} />
+                        <DateAccordion dateLength={dateLength} setSelectedItems={setSelectedItems} selectedItems={selectedItems} setSelectedIndex={setSelectedIndex}/>
+                        <DateAlert dateLength={dateLength}/>
                     </Grid>
                     <Grid item className="maparea" xs={12} sm={8}>
-                        <Map selectedItems={selectedItems} />
+                        {/* <Map selectedItems={selectedItems} /> */}
                     </Grid>
                     <Grid item className="rightbar" xs={12} sm={2}>
-                        <PlanCard setSelectedItems={setSelectedItems} selectedItems={selectedItems} />
+                        <PlanCard setSelectedItems={setSelectedItems} selectedItems={selectedItems} selectedIndex={selectedIndex}/>
                     </Grid>
                 </Grid>
             </div>

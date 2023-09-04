@@ -54,16 +54,22 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    align-items: center;
+
 }
 
 .modal-text {
-    margin-top:x -100px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
+.modal-icon{
+    display: flex;
+    justify-content: space-around;
+}
+
 .modal-image {
+    height: 355px;
+    max-height: 355px;
     display: flex;
     justify-content: center;
     align-items: center;

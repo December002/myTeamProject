@@ -23,7 +23,7 @@ export default function DateTableBody(){
                     <td>
                         <ul className="number-ul">
                             <li>살</li>
-                               <li>려</li>
+                            <li>려</li>
                             <li>줘</li>
                             <li>ㅅ</li>
                             <li>ㅂ</li>
