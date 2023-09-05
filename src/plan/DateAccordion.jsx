@@ -31,7 +31,8 @@ export default function DateAccordion({ dateLength, selectedItems, setSelectedIt
                 };
 
                 const cardsForDate = [];
-                cardsForDate.push(<AppendCard key={i} {...cardProps} />);
+                cardsForDate.push(<AppendCard key={i} item={dateCards}
+                  {...cardProps} />);
                 dateCards[i] = cardsForDate; // 해당 날짜의 배열에 카드 추가
             }
 
